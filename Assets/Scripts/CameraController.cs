@@ -41,9 +41,8 @@ public class CameraController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        Debug.Log(player.transform.eulerAngles);
         if (
             player.transform.eulerAngles.y <= 30 && player.transform.eulerAngles.y >= 10
             //true

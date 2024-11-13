@@ -5,30 +5,36 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 6.0f;
-    float horizontal;
+    [SerializeField] private Transform center;
+    [SerializeField] private Transform moveDirectionOffset;
 
+    public float speed = 6.0f;
     public float rayLength = 1;
     public float jumpStrength = 10.0f;
-    float initZAxisPosition;
     public float jumpSpeedDivisionFactor = 4;
-    public float gravityAccelerationFactor = 20;
+
+    float horizontal;
+    float initZAxisPosition;
+    float radius;
+
+    Vector3 initPos;
+
     bool jump = false;
     bool onGround = true;
     bool againstWall = false;
 
-    LayerMask layerMask;
     public Transform bodyTransform;
-    public Transform centralTransform;
+    //public Vector2 worldCenter;
+    LayerMask layerMask;
     Rigidbody rb;
 
     void Start()
     {
-        initZAxisPosition = bodyTransform.localPosition.z;
+        radius = Vector3.Distance(transform.position, new Vector3(center.position.x, transform.position.y, transform.position.z));
+        initPos = transform.position;
+        initZAxisPosition = transform.localPosition.z;
         layerMask = LayerMask.GetMask("Terrain");
-        rb = GetComponent<Rigidbody>();
-        //rb = transform.GetChild(0).GetComponent<Rigidbody>();
-        //print(rb.gameObject.name);
+        rb = transform.GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -39,38 +45,41 @@ public class PlayerController : MonoBehaviour
             jump = false;
         }
 
-        
         if (!onGround) 
             rb.AddForce(Vector3.down * (jumpStrength / jumpSpeedDivisionFactor) * 100, ForceMode.Acceleration);
-        
 
-        rb.AddForce(speed * horizontal * bodyTransform.TransformDirection(Vector3.right), ForceMode.VelocityChange);
+        rb.AddRelativeForce(speed * horizontal * Vector3.right, ForceMode.VelocityChange);
+        //rb.AddForce(speed * horizontal * transform.TransformDirection(Vector3.right), ForceMode.VelocityChange);
+
     }
 
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
 
-        if (bodyTransform.localPosition.z != initZAxisPosition)
-            bodyTransform.localPosition = new Vector3(bodyTransform.localPosition.x, bodyTransform.localPosition.y, initZAxisPosition);
+        //if (transform.localPosition.z != initZAxisPosition)
+        //    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, initZAxisPosition);
 
         RaycastHit hit;
-        Ray ray = new Ray(bodyTransform.position, bodyTransform.TransformDirection(Vector3.down));
+        Ray ray = new Ray(transform.position, Vector3.down);
+
+        Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
 
         onGround = Physics.Raycast(ray, out hit, rayLength, layerMask);
 
         if (onGround && Input.GetKeyDown(KeyCode.Space) && !jump) jump = true;
 
-        bodyTransform.LookAt(new Vector3(250, bodyTransform.position.y, 250));
+        transform.LookAt(new Vector3(center.position.x, transform.position.y, center.position.z));
+        bodyTransform.localEulerAngles = horizontal == 0 ? bodyTransform.localEulerAngles : horizontal > 0 ? Vector3.zero : new Vector3(0, 180, 0);
+
+        var allowedPos = transform.position - initPos;
+        allowedPos = Vector3.ClampMagnitude(allowedPos, radius);
+        transform.position = initPos + allowedPos;
     }
 
-    //void OnCollisionStay(Collision other)
-    //{
-    //    onGround = other.gameObject.CompareTag("Terrain");
-    //}
+    void LateUpdate()
+    {
 
-    //void OnCollisionExit(Collision collision)
-    //{
-    //    onGround = !onGround;
-    //}
+
+    }
 }

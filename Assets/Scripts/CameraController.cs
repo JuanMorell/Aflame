@@ -40,16 +40,21 @@ public class CameraController : MonoBehaviour
         //Debug.Log(limit[0] + " " + limit[1]);
     }
 
+    void Update()
+    {
+
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
-        if (
-            player.transform.eulerAngles.y <= 30 && player.transform.eulerAngles.y >= 10
-            //true
-            )
-        {
-            transform.rotation = player.transform.rotation;
-        }
+        //if (
+        //    player.transform.eulerAngles.y <= 30 && player.transform.eulerAngles.y >= 10
+        //    //true
+        //    )
+        //{
+        //    transform.rotation = player.transform.rotation;
+        //}
     }
 
     void SetCameraLimits(float l, float r, float h)

@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 621947764}
   - component: {fileID: 621947767}
   - component: {fileID: 621947768}
+  - component: {fileID: 621947769}
   m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
@@ -346,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 621947762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 50.715, z: -206}
-  m_LocalScale: {x: 0.71036005, y: 0.71036, z: 0.71036005}
+  m_LocalScale: {x: 0.71036017, y: 0.71036, z: 0.71036017}
   m_Children:
   - {fileID: 1977046755}
   m_Father: {fileID: 1734738913}
@@ -361,7 +362,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 621947762}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -424,7 +425,7 @@ Rigidbody:
   m_GameObject: {fileID: 621947762}
   serializedVersion: 2
   m_Mass: 20
-  m_Drag: 0
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -440,10 +441,29 @@ BoxCollider:
   m_GameObject: {fileID: 621947762}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1.9999999, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &621947769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621947762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2fe6e916413344592f81f900793e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  rayLength: 1
+  jumpStrength: 20
+  jumpSpeedDivisionFactor: 5
+  gravityAccelerationFactor: 20
+  bodyTransform: {fileID: 621947763}
+  centralTransform: {fileID: 1734738913}
 --- !u!1 &644510505
 GameObject:
   m_ObjectHideFlags: 0
@@ -5747,9 +5767,9 @@ GameObject:
   - component: {fileID: 1642792901}
   - component: {fileID: 1642792900}
   - component: {fileID: 1642792899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5824,8 +5844,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642792898}
   m_LocalRotation: {x: -1.3133025e-18, y: 0.27917668, z: 0.00000003328045, w: 0.9602397}
-  m_LocalPosition: {x: 152.1, y: 52.5, z: 71.2}
-  m_LocalScale: {x: 9.8635, y: 5, z: 13.599}
+  m_LocalPosition: {x: 152.1, y: 51.58, z: 71.2}
+  m_LocalScale: {x: 9.8635, y: 3.7546015, z: 13.599}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -5869,16 +5889,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734738912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db2fe6e916413344592f81f900793e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 10
   rayLength: 1
   jumpStrength: 600
+  jumpSpeedDivisionFactor: 4
   gravityAccelerationFactor: 20
   bodyTransform: {fileID: 621947763}
+  centralTransform: {fileID: 0}
 --- !u!1 &1812477457
 GameObject:
   m_ObjectHideFlags: 0
@@ -5892,7 +5914,7 @@ GameObject:
   - component: {fileID: 1812477458}
   m_Layer: 6
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

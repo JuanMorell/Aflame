@@ -5,81 +5,63 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Transform center;
-    [SerializeField] private Transform moveDirectionOffset;
-
-    public float speed = 6.0f;
+    public float speed = 0;
     public float rayLength = 1;
-    public float jumpStrength = 10.0f;
-    public float jumpSpeedDivisionFactor = 4;
-
+    public float gravityAcceleration = 0;
+    public float jumpStrength = 0;
+    public float jumpBuffer = 0;
+    float jumpTimer = 0;
     float horizontal;
-    float initZAxisPosition;
-    float radius;
-
-    Vector3 initPos;
-
     bool jump = false;
     bool onGround = true;
-    bool againstWall = false;
-
     public Transform bodyTransform;
-    //public Vector2 worldCenter;
     LayerMask layerMask;
     Rigidbody rb;
 
     void Start()
     {
-        radius = Vector3.Distance(transform.position, new Vector3(center.position.x, transform.position.y, transform.position.z));
-        initPos = transform.position;
-        initZAxisPosition = transform.localPosition.z;
         layerMask = LayerMask.GetMask("Terrain");
         rb = transform.GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
+        //Si el jugador ha pulsado el botón de salto durante el buffer de salto, se aplica un vector vertical a la velocidad de Espelma
         if (jump)
         {
-            rb.AddForce(Vector3.up * jumpStrength * 100, ForceMode.Impulse);
+            rb.velocity = Vector3.up * jumpStrength;
             jump = false;
         }
 
-        if (!onGround) 
-            rb.AddForce(Vector3.down * (jumpStrength / jumpSpeedDivisionFactor) * 100, ForceMode.Acceleration);
+        //Una vez Espelma empieza a caer tras el salto, aumentamos la fuerza de gravedad
+        if (rb.velocity.y < 0)
+            rb.velocity += Vector3.up * Physics.gravity.y * (gravityAcceleration - 1) * Time.deltaTime;
 
+        //Usamos el input horizontal para aplicar un cambio de velocidad a Espelma
         rb.AddRelativeForce(speed * horizontal * Vector3.right, ForceMode.VelocityChange);
-        //rb.AddForce(speed * horizontal * transform.TransformDirection(Vector3.right), ForceMode.VelocityChange);
 
+        if (rb.velocity.y > 0)
+            print("UP");
+        else if (rb.velocity.y < 0)
+            print("DOWN");
     }
 
     void Update()
     {
+        //Cogiendo el input horizontal
         horizontal = Input.GetAxis("Horizontal");
 
-        //if (transform.localPosition.z != initZAxisPosition)
-        //    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, initZAxisPosition);
-
+        //Creando un raycast hacia abajo para detectar si estamos en tierra
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
-
-        Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
-
         onGround = Physics.Raycast(ray, out hit, rayLength, layerMask);
 
-        if (onGround && Input.GetKeyDown(KeyCode.Space) && !jump) jump = true;
+        //Aplicamos un buffer al salto para ver si se ha pulsado el botón de salto antes de tocar el sielo
+        jumpTimer = Input.GetKeyDown(KeyCode.Space) ? jumpBuffer : jumpTimer - Time.deltaTime;
+        jump = onGround && jumpTimer > 0 && !jump;
 
-        transform.LookAt(new Vector3(center.position.x, transform.position.y, center.position.z));
+        //Cambiamos la dirección de Espelma al moverla en la dirección contraria
         bodyTransform.localEulerAngles = horizontal == 0 ? bodyTransform.localEulerAngles : horizontal > 0 ? Vector3.zero : new Vector3(0, 180, 0);
-
-        var allowedPos = transform.position - initPos;
-        allowedPos = Vector3.ClampMagnitude(allowedPos, radius);
-        transform.position = initPos + allowedPos;
-    }
-
-    void LateUpdate()
-    {
-
-
     }
 }
+        //Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);

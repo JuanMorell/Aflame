@@ -10,11 +10,12 @@ public class PlayerController : MonoBehaviour
     public float gravityAcceleration = 0;
     public float jumpStrength = 0;
     public float jumpBuffer = 0;
-    float jumpTimer = 0;
-    float horizontal;
-    bool jump = false;
-    bool onGround = true;
     public Transform bodyTransform;
+
+    float horizontal;
+    float jumpTimer = 0;
+    float coyoteTimer = 0;
+    bool jump = false;
     LayerMask layerMask;
     Rigidbody rb;
 
@@ -26,41 +27,42 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Si el jugador ha pulsado el botón de salto durante el buffer de salto, se aplica un vector vertical a la velocidad de Espelma
+        //SALTAMOS SI SE HA PULSADO EL BOTÓN A TIEMPO
         if (jump)
         {
+            jumpTimer = 0;
+            coyoteTimer = 0;
             rb.velocity = Vector3.up * jumpStrength;
-            jump = false;
         }
 
-        //Una vez Espelma empieza a caer tras el salto, aumentamos la fuerza de gravedad
+        //AUMENTAMOS LA GRAVEDAD DURANTE LA CAÍDA
         if (rb.velocity.y < 0)
             rb.velocity += Vector3.up * Physics.gravity.y * (gravityAcceleration - 1) * Time.deltaTime;
 
-        //Usamos el input horizontal para aplicar un cambio de velocidad a Espelma
+        //NOS MOVEMOS CON EL INPUT HORIZONTAL
         rb.AddRelativeForce(speed * horizontal * Vector3.right, ForceMode.VelocityChange);
 
-        if (rb.velocity.y > 0)
+        {/* if (rb.velocity.y > 0)
             print("UP");
         else if (rb.velocity.y < 0)
-            print("DOWN");
+            print("DOWN");*/}
     }
 
     void Update()
     {
-        //Cogiendo el input horizontal
+        //COGEMOS EL INPUT HORIZONTAL
         horizontal = Input.GetAxis("Horizontal");
 
-        //Creando un raycast hacia abajo para detectar si estamos en tierra
+        //CREAMOS UN RAYCAST PARA DETECTAR EL TERRENO
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
-        onGround = Physics.Raycast(ray, out hit, rayLength, layerMask);
 
-        //Aplicamos un buffer al salto para ver si se ha pulsado el botón de salto antes de tocar el sielo
+        //APLICAMOS UN BUFFER Y TIEMPO DE COYOTE AL SALTO
         jumpTimer = Input.GetKeyDown(KeyCode.Space) ? jumpBuffer : jumpTimer - Time.deltaTime;
-        jump = onGround && jumpTimer > 0 && !jump;
+        coyoteTimer = Physics.Raycast(ray, out hit, rayLength, layerMask) ? jumpBuffer : coyoteTimer - Time.deltaTime;
+        jump = jumpTimer > 0 && coyoteTimer > 0;
 
-        //Cambiamos la dirección de Espelma al moverla en la dirección contraria
+        //CAMBIAMOS LA DIRECCIÓN DEL JUGADOR SEGÚN SU DIRECCIÓN DE MOVIMIENTO
         bodyTransform.localEulerAngles = horizontal == 0 ? bodyTransform.localEulerAngles : horizontal > 0 ? Vector3.zero : new Vector3(0, 180, 0);
     }
 }

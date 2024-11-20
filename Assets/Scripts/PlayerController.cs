@@ -41,11 +41,6 @@ public class PlayerController : MonoBehaviour
 
         //NOS MOVEMOS CON EL INPUT HORIZONTAL
         rb.AddRelativeForce(speed * horizontal * Vector3.right, ForceMode.VelocityChange);
-
-        {/* if (rb.velocity.y > 0)
-            print("UP");
-        else if (rb.velocity.y < 0)
-            print("DOWN");*/}
     }
 
     void Update()
@@ -66,4 +61,3 @@ public class PlayerController : MonoBehaviour
         bodyTransform.localEulerAngles = horizontal == 0 ? bodyTransform.localEulerAngles : horizontal > 0 ? Vector3.zero : new Vector3(0, 180, 0);
     }
 }
-        //Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);

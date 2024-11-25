@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class ItemManipulation : MonoBehaviour
@@ -11,6 +12,7 @@ public class ItemManipulation : MonoBehaviour
     bool itemGrabbed = false;
     bool itemThrown = false;
     Rigidbody itemRb;
+    CylinderGeodesic cylinderGeodesic;
 
     void FixedUpdate()
     {
@@ -23,11 +25,11 @@ public class ItemManipulation : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.C) && other.gameObject.CompareTag("Item") && !itemGrabbed)
+        if (Input.GetKeyDown(KeyCode.M) && other.gameObject.CompareTag("Item") && !itemGrabbed)
         {
             GrabItem(other.gameObject);
             itemGrabbed = true;
-        } else if (Input.GetKeyDown(KeyCode.C) && other.gameObject.CompareTag("Item"))
+        } else if (Input.GetKeyDown(KeyCode.M) && other.gameObject.CompareTag("Item"))
         {
             ThrowItem(other.gameObject);
         }
@@ -35,6 +37,8 @@ public class ItemManipulation : MonoBehaviour
 
     void GrabItem(GameObject item)
     {
+        CylinderGeodesic cylinderGeodesic = item.GetComponent<CylinderGeodesic>();
+        cylinderGeodesic.enabled = false;
         item.transform.parent = transform;
         item.transform.localPosition = itemPosition;
         item.transform.localRotation = Quaternion.Euler(itemRotation);
@@ -42,7 +46,10 @@ public class ItemManipulation : MonoBehaviour
 
     void ThrowItem(GameObject item)
     {
-        item.transform.parent = item.transform;
+        CylinderGeodesic cylinderGeodesic = item.GetComponent<CylinderGeodesic>();
+        cylinderGeodesic.enabled = true;
+        itemGrabbed = false;
+        item.transform.parent = cylinderGeodesic.worldCenter.transform;
         itemRb = item.GetComponent<Rigidbody>();
         itemRb.constraints = RigidbodyConstraints.None;
         itemThrown = true;

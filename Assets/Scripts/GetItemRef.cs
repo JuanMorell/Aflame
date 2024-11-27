@@ -5,21 +5,6 @@ using static UnityEditor.Progress;
 
 public class GetItemRef : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Item"))
-        {
-            print(other.gameObject.name);
-            other.gameObject.GetComponent<ItemManipulation>().allowInteraction = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Item"))
-        {
-            print(other.gameObject.name);
-            other.gameObject.GetComponent<ItemManipulation>().allowInteraction = false;
-        }
-    }
+    public Vector3 itemPosition;
+    public Vector3 itemRotation;
 }

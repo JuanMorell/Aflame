@@ -1,73 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEditorInternal.Profiling.Memory.Experimental;
-//using UnityEngine;
-
-//public class ItemManipulation : MonoBehaviour
-//{
-//    public Vector3 itemPosition;
-//    public Vector3 itemRotation;
-//    public float strength;
-
-//    bool itemGrabbed = false;
-//    bool itemThrown = false;
-//    bool allowInteraction = false;
-//    Rigidbody itemRb;
-//    CylinderGeodesic cylinderGeodesic;
-
-//    void FixedUpdate()
-//    {
-//        if (itemThrown)
-//        {
-//            itemThrown = false;
-//            itemRb.AddForce(Vector3.right * strength, ForceMode.Impulse);
-//        }
-//    }
-
-//    void Update() 
-//    {
-//        if (Input.GetKeyDown(KeyCode.M)) { 
-//            allowInteraction = true;
-//        }
-//    }
-
-//    void OnTriggerStay(Collider other)
-//    {
-//        if (allowInteraction && other.gameObject.CompareTag("Item") && !itemGrabbed)
-//        {
-//            GrabItem(other.gameObject);
-//            itemGrabbed = true;
-//            allowInteraction = false;
-//        } else if (Input.GetKeyDown(KeyCode.M) && other.gameObject.CompareTag("Item"))
-//        {
-//            ThrowItem(other.gameObject);
-//        }
-//    }
-
-//    void GrabItem(GameObject item)
-//    {
-//        CylinderGeodesic cylinderGeodesic = item.GetComponent<CylinderGeodesic>();
-//        cylinderGeodesic.enabled = false;
-//        itemRb = item.GetComponent<Rigidbody>();
-//        itemRb.constraints = RigidbodyConstraints.FreezeAll;
-//        item.transform.parent = transform;
-//        item.transform.localPosition = itemPosition;
-//        item.transform.localRotation = Quaternion.Euler(itemRotation);
-//    }
-
-//    void ThrowItem(GameObject item)
-//    {
-//        CylinderGeodesic cylinderGeodesic = item.GetComponent<CylinderGeodesic>();
-//        cylinderGeodesic.enabled = true;
-//        itemGrabbed = false;
-//        itemRb = item.GetComponent<Rigidbody>();
-//        itemRb.constraints = RigidbodyConstraints.None;
-//        item.transform.parent = cylinderGeodesic.worldCenter.transform;
-//        itemThrown = true;
-//    }
-//}
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal.Profiling.Memory.Experimental;
@@ -75,15 +5,13 @@ using UnityEngine;
 
 public class ItemManipulation : MonoBehaviour
 {
-    public Vector3 itemPosition;
-    public Vector3 itemRotation;
-    public float strength;
-    public GameObject hand;
-
-    bool itemGrabbed = false;
     [HideInInspector]
     public bool allowInteraction = false;
+    public float strength;
+
+    bool itemGrabbed = false;
     bool itemThrown = false;
+    GameObject item;
     Rigidbody itemRb;
     CylinderGeodesic cylinderGeodesic;
 
@@ -92,7 +20,8 @@ public class ItemManipulation : MonoBehaviour
         if (itemThrown)
         {
             itemThrown = false;
-            itemRb.AddForce(hand.transform.TransformDirection(Vector3.right) * strength, ForceMode.Impulse);
+            itemRb.AddForce(transform.TransformDirection(Vector3.right) * strength, ForceMode.Impulse);
+            itemRb.velocity += gameObject.GetComponentInParent<Rigidbody>().velocity;
         }
     }
 
@@ -100,7 +29,6 @@ public class ItemManipulation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M) && allowInteraction)
         {
-            print("M");
             if (!itemGrabbed)
                 GrabItem();
             else
@@ -112,34 +40,50 @@ public class ItemManipulation : MonoBehaviour
     {
         itemGrabbed = true;
 
-        if (gameObject.GetComponent<CylinderGeodesic>()!=null)
-            gameObject.GetComponent<CylinderGeodesic>().enabled = false;
+        cylinderGeodesic = item.GetComponent<CylinderGeodesic>();
+        cylinderGeodesic.enabled = false;
 
-        if (gameObject.GetComponent<Rigidbody>() != null)
+        if (item.gameObject.GetComponent<Rigidbody>() != null)
         {
-            itemRb = gameObject.GetComponent<Rigidbody>();
+            itemRb = item.GetComponent<Rigidbody>();
             itemRb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
-        gameObject.transform.parent = hand.transform;
-        gameObject.transform.localPosition = itemPosition;
-        gameObject.transform.localRotation = Quaternion.Euler(itemRotation);
+        item.transform.parent = transform;
+        item.transform.localPosition = item.GetComponent<GetItemRef>().itemPosition;
+        item.transform.localRotation = Quaternion.Euler(item.GetComponent<GetItemRef>().itemRotation);
     }
 
     void ThrowItem()
     {
         itemGrabbed = false;
 
-        if (gameObject.GetComponent<CylinderGeodesic>() != null)
-            gameObject.GetComponent<CylinderGeodesic>().enabled = true;
+        cylinderGeodesic.enabled = true;
 
-        if (gameObject.GetComponent<Rigidbody>() != null)
+        if (item.GetComponent<Rigidbody>() != null)
         {
-            itemRb = gameObject.GetComponent<Rigidbody>();
+            itemRb = item.GetComponent<Rigidbody>();
             itemRb.constraints = RigidbodyConstraints.None;
         }
 
-        gameObject.transform.parent = cylinderGeodesic.worldCenter.transform;
+        item.transform.parent = cylinderGeodesic.worldCenter.transform;
         itemThrown = true;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            item = other.gameObject;
+            allowInteraction = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            allowInteraction = false;
+        }
     }
 }

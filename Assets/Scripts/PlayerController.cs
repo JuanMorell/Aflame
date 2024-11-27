@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour
     public float gravityAcceleration = 0;
     public float jumpStrength = 0;
     public float jumpBuffer = 0;
-    public Transform bodyTransform;
+    public Transform body;
+    public Transform head;
 
     float horizontal;
+    float vertical;
     float jumpTimer = 0;
     float coyoteTimer = 0;
     bool jump = false;
@@ -45,8 +47,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //COGEMOS EL INPUT HORIZONTAL
+        //COGEMOS EL INPUT
         horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
         //CREAMOS UN RAYCAST PARA DETECTAR EL TERRENO
         RaycastHit hit;
@@ -58,6 +61,23 @@ public class PlayerController : MonoBehaviour
         jump = jumpTimer > 0 && coyoteTimer > 0;
 
         //CAMBIAMOS LA DIRECCIÓN DEL JUGADOR SEGÚN SU DIRECCIÓN DE MOVIMIENTO
-        bodyTransform.localEulerAngles = horizontal == 0 ? bodyTransform.localEulerAngles : horizontal > 0 ? Vector3.zero : new Vector3(0, 180, 0);
+        body.localEulerAngles = horizontal == 0 ? body.localEulerAngles : horizontal > 0 ? Vector3.zero : new Vector3(0, 180, 0);
+
+        //head.localEulerAngles = vertical >= 0.5f ? new Vector3(0, 0, 50) : Vector3.zero;
+        //head.localPosition = vertical <= 0.5f ? new Vector3(1, 0.5f, 1) : Vector3.one;
+        //body.localScale = vertical <= 0.5f ? new Vector3 (1, 0.5f, 1) : Vector3.one;
+
+        if (vertical == 0)
+        {
+            head.localEulerAngles = Vector3.zero;
+            head.localPosition = new Vector3(0, 2, 0);
+            body.localScale = Vector3.one;
+        }
+        else if (vertical > 0) {
+            head.localEulerAngles = new Vector3(0, 0, 50);
+        } else if (vertical < 0) {
+            head.localPosition = new Vector3 (0, 1.2f, 0);
+            body.localScale = new Vector3(1.25f, 0.5f, 1.25f);
+        }
     }
 }

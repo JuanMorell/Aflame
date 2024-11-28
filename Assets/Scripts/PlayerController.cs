@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public Transform head;
 
     float horizontal;
-    float vertical;
     float jumpTimer = 0;
     float coyoteTimer = 0;
     bool jump = false;
@@ -25,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         layerMask = LayerMask.GetMask("Terrain");
         rb = transform.GetComponent<Rigidbody>();
+        //rb = transform.GetComponentInChildren<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpTimer = 0;
             coyoteTimer = 0;
-            rb.velocity = Vector3.up * jumpStrength;
+            rb.velocity =  Vector3.up * jumpStrength;
         }
 
         //AUMENTAMOS LA GRAVEDAD DURANTE LA CAÍDA
@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
     {
         //COGEMOS EL INPUT
         horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        bool up = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
+        bool down = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
 
         //CREAMOS UN RAYCAST PARA DETECTAR EL TERRENO
         RaycastHit hit;
@@ -62,22 +63,8 @@ public class PlayerController : MonoBehaviour
 
         //CAMBIAMOS LA DIRECCIÓN DEL JUGADOR SEGÚN SU DIRECCIÓN DE MOVIMIENTO
         body.localEulerAngles = horizontal == 0 ? body.localEulerAngles : horizontal > 0 ? Vector3.zero : new Vector3(0, 180, 0);
-
-        //head.localEulerAngles = vertical >= 0.5f ? new Vector3(0, 0, 50) : Vector3.zero;
-        //head.localPosition = vertical <= 0.5f ? new Vector3(1, 0.5f, 1) : Vector3.one;
-        //body.localScale = vertical <= 0.5f ? new Vector3 (1, 0.5f, 1) : Vector3.one;
-
-        if (vertical == 0)
-        {
-            head.localEulerAngles = Vector3.zero;
-            head.localPosition = new Vector3(0, 2, 0);
-            body.localScale = Vector3.one;
-        }
-        else if (vertical > 0) {
-            head.localEulerAngles = new Vector3(0, 0, 50);
-        } else if (vertical < 0) {
-            head.localPosition = new Vector3 (0, 1.2f, 0);
-            body.localScale = new Vector3(1.25f, 0.5f, 1.25f);
-        }
+        head.localEulerAngles = up ? new Vector3(0, 0, 50) : Vector3.zero;
+        head.localPosition = down ? new Vector3(0, 1.2f, 0) : new Vector3(0, 2, 0);
+        body.localScale = down ? new Vector3(1.25f, 0.5f, 1.25f) : Vector3.one;
     }
 }

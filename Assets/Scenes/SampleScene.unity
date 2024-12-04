@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &11682692
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5075,6 +5075,7 @@ GameObject:
   - component: {fileID: 69465604}
   - component: {fileID: 69465608}
   - component: {fileID: 69465607}
+  - component: {fileID: 69465609}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -5169,7 +5170,7 @@ HingeJoint:
   m_ConnectedBody: {fileID: 2036368464}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.5, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: -1, z: 0}
   m_UseSpring: 0
@@ -5203,7 +5204,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69465602}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -5211,6 +5212,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &69465609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69465602}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &80369121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5539,9 +5553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &133282393
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -10350,6 +10364,7 @@ GameObject:
   - component: {fileID: 134559678}
   - component: {fileID: 134559677}
   - component: {fileID: 134559679}
+  - component: {fileID: 134559680}
   m_Layer: 0
   m_Name: Cube (19)
   m_TagString: Untagged
@@ -10478,7 +10493,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134559672}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -10522,6 +10537,19 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &134559680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134559672}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &146110464
 GameObject:
   m_ObjectHideFlags: 0
@@ -10796,6 +10824,7 @@ GameObject:
   - component: {fileID: 241822483}
   - component: {fileID: 241822487}
   - component: {fileID: 241822486}
+  - component: {fileID: 241822488}
   m_Layer: 0
   m_Name: Cube (14)
   m_TagString: Untagged
@@ -10924,7 +10953,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241822481}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -10932,6 +10961,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &241822488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241822481}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &270898591
 GameObject:
   m_ObjectHideFlags: 0
@@ -11074,9 +11116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &287932152
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -16169,6 +16211,7 @@ GameObject:
   - component: {fileID: 365972653}
   - component: {fileID: 365972657}
   - component: {fileID: 365972656}
+  - component: {fileID: 365972658}
   m_Layer: 0
   m_Name: Cube (10)
   m_TagString: Untagged
@@ -16297,7 +16340,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365972651}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -16305,6 +16348,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &365972658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365972651}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &431212317
 GameObject:
   m_ObjectHideFlags: 0
@@ -21336,9 +21392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!1 &458443523
 GameObject:
   m_ObjectHideFlags: 0
@@ -21386,9 +21442,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &458443526
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -26448,6 +26504,7 @@ GameObject:
   - component: {fileID: 548772195}
   - component: {fileID: 548772199}
   - component: {fileID: 548772198}
+  - component: {fileID: 548772200}
   m_Layer: 0
   m_Name: Cube (15)
   m_TagString: Untagged
@@ -26576,7 +26633,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548772193}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -26584,6 +26641,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &548772200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548772193}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &549042893
 GameObject:
   m_ObjectHideFlags: 0
@@ -26726,9 +26796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &583792516
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -31569,9 +31639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &595284965
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -36510,9 +36580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &624457565
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -41639,9 +41709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 1
   fireLitCountdown: 1
   burnCountdown: 1
+  fireActive: 1
 --- !u!199 &688110114
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -46656,9 +46726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &743852525
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -51541,6 +51611,7 @@ GameObject:
   - component: {fileID: 756757694}
   - component: {fileID: 756757698}
   - component: {fileID: 756757697}
+  - component: {fileID: 756757699}
   m_Layer: 0
   m_Name: Cube (8)
   m_TagString: Untagged
@@ -51669,7 +51740,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756757692}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -51677,6 +51748,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &756757699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756757692}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &796345273
 GameObject:
   m_ObjectHideFlags: 0
@@ -51934,9 +52018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &843309661
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -56934,6 +57018,7 @@ GameObject:
   - component: {fileID: 867826207}
   - component: {fileID: 867826211}
   - component: {fileID: 867826210}
+  - component: {fileID: 867826212}
   m_Layer: 0
   m_Name: Cube (13)
   m_TagString: Untagged
@@ -57062,7 +57147,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867826205}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -57070,6 +57155,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &867826212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867826205}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &874888219
 GameObject:
   m_ObjectHideFlags: 0
@@ -57274,6 +57372,7 @@ GameObject:
   - component: {fileID: 920771909}
   - component: {fileID: 920771913}
   - component: {fileID: 920771912}
+  - component: {fileID: 920771914}
   m_Layer: 0
   m_Name: Cube (20)
   m_TagString: Untagged
@@ -57402,7 +57501,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920771907}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -57410,6 +57509,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &920771914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920771907}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &922884113
 GameObject:
   m_ObjectHideFlags: 0
@@ -57588,6 +57700,7 @@ GameObject:
   - component: {fileID: 999510119}
   - component: {fileID: 999510118}
   - component: {fileID: 999510122}
+  - component: {fileID: 999510121}
   m_Layer: 0
   m_Name: Cube (21)
   m_TagString: Untagged
@@ -57672,6 +57785,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999510116}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &999510121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999510116}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!54 &999510122
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -57680,7 +57806,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999510116}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -57735,9 +57861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1032876064
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -62545,6 +62671,7 @@ GameObject:
   - component: {fileID: 1044542235}
   - component: {fileID: 1044542239}
   - component: {fileID: 1044542238}
+  - component: {fileID: 1044542240}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -62673,7 +62800,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044542233}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -62681,6 +62808,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1044542240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044542233}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1044584273
 GameObject:
   m_ObjectHideFlags: 0
@@ -62862,9 +63002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1047851441
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -68032,6 +68172,7 @@ GameObject:
   - component: {fileID: 1121995262}
   - component: {fileID: 1121995266}
   - component: {fileID: 1121995265}
+  - component: {fileID: 1121995267}
   m_Layer: 0
   m_Name: Cube (9)
   m_TagString: Untagged
@@ -68160,7 +68301,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121995260}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -68168,6 +68309,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1121995267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121995260}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1137897438
 GameObject:
   m_ObjectHideFlags: 0
@@ -68215,9 +68369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1137897441
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -73153,9 +73307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1192571861
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -82832,6 +82986,7 @@ GameObject:
   - component: {fileID: 1196545179}
   - component: {fileID: 1196545183}
   - component: {fileID: 1196545182}
+  - component: {fileID: 1196545184}
   m_Layer: 0
   m_Name: Cube (17)
   m_TagString: Untagged
@@ -82960,7 +83115,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196545177}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -82968,6 +83123,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1196545184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196545177}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1248308522
 GameObject:
   m_ObjectHideFlags: 0
@@ -83015,9 +83183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1248308525
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -87920,6 +88088,7 @@ GameObject:
   - component: {fileID: 1266519094}
   - component: {fileID: 1266519098}
   - component: {fileID: 1266519097}
+  - component: {fileID: 1266519099}
   m_Layer: 0
   m_Name: Cube (16)
   m_TagString: Untagged
@@ -88048,7 +88217,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266519092}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -88056,6 +88225,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1266519099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266519092}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1268282215
 GameObject:
   m_ObjectHideFlags: 0
@@ -88165,6 +88347,7 @@ GameObject:
   - component: {fileID: 1294550050}
   - component: {fileID: 1294550054}
   - component: {fileID: 1294550053}
+  - component: {fileID: 1294550055}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -88293,7 +88476,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294550048}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -88301,6 +88484,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1294550055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294550048}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1305860841
 GameObject:
   m_ObjectHideFlags: 0
@@ -88315,6 +88511,7 @@ GameObject:
   - component: {fileID: 1305860843}
   - component: {fileID: 1305860847}
   - component: {fileID: 1305860846}
+  - component: {fileID: 1305860848}
   m_Layer: 0
   m_Name: Cube (12)
   m_TagString: Untagged
@@ -88443,7 +88640,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305860841}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -88451,6 +88648,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1305860848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305860841}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1322639239
 GameObject:
   m_ObjectHideFlags: 0
@@ -88673,6 +88883,7 @@ GameObject:
   - component: {fileID: 1356037615}
   - component: {fileID: 1356037614}
   - component: {fileID: 1356037616}
+  - component: {fileID: 1356037617}
   m_Layer: 0
   m_Name: Cube (7)
   m_TagString: Untagged
@@ -88801,7 +89012,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356037609}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -88845,6 +89056,19 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1356037617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356037609}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!43 &1357787387
 Mesh:
   m_ObjectHideFlags: 0
@@ -89033,6 +89257,7 @@ GameObject:
   - component: {fileID: 1380192446}
   - component: {fileID: 1380192450}
   - component: {fileID: 1380192449}
+  - component: {fileID: 1380192451}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -89127,7 +89352,7 @@ HingeJoint:
   m_ConnectedBody: {fileID: 1356037615}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.5, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 1, y: 1, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.17757216, y: 0.06975865, z: 0.9816324}
   m_UseSpring: 0
@@ -89161,7 +89386,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380192444}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -89169,6 +89394,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1380192451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380192444}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1399874844
 GameObject:
   m_ObjectHideFlags: 0
@@ -89278,6 +89516,7 @@ GameObject:
   - component: {fileID: 1429153382}
   - component: {fileID: 1429153386}
   - component: {fileID: 1429153385}
+  - component: {fileID: 1429153387}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -89406,7 +89645,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429153380}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -89414,6 +89653,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1429153387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429153380}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1433824358
 GameObject:
   m_ObjectHideFlags: 0
@@ -89638,9 +89890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1448873011
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -94448,6 +94700,7 @@ GameObject:
   - component: {fileID: 1459406009}
   - component: {fileID: 1459406013}
   - component: {fileID: 1459406012}
+  - component: {fileID: 1459406014}
   m_Layer: 0
   m_Name: Cube (11)
   m_TagString: Untagged
@@ -94576,7 +94829,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459406007}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -94584,6 +94837,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1459406014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459406007}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1482514007
 GameObject:
   m_ObjectHideFlags: 0
@@ -94855,6 +95121,7 @@ GameObject:
   - component: {fileID: 1635810106}
   - component: {fileID: 1635810110}
   - component: {fileID: 1635810109}
+  - component: {fileID: 1635810111}
   m_Layer: 0
   m_Name: Cube (18)
   m_TagString: Untagged
@@ -94983,7 +95250,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635810104}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -94991,6 +95258,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1635810111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635810104}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1642792898
 GameObject:
   m_ObjectHideFlags: 0
@@ -95480,6 +95760,7 @@ GameObject:
   - component: {fileID: 1781651340}
   - component: {fileID: 1781651344}
   - component: {fileID: 1781651343}
+  - component: {fileID: 1781651345}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -95608,7 +95889,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781651338}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -95616,6 +95897,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1781651345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781651338}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &1812477457
 GameObject:
   m_ObjectHideFlags: 0
@@ -95739,9 +96033,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1817758369
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -100614,9 +100908,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1873892048
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -105457,9 +105751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1927315408
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -110348,7 +110642,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928380333}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -112073,7 +112367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99006c1e67eb7e44db06eb2cc12c55af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: -2
+  strength: -10
 --- !u!1 &1932776109
 GameObject:
   m_ObjectHideFlags: 0
@@ -112216,9 +112510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1947409579
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -117120,9 +117414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &1971501735
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -122121,9 +122415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 1
   fireLitCountdown: 1
   burnCountdown: 1
+  fireActive: 1
 --- !u!1 &1983265901
 GameObject:
   m_ObjectHideFlags: 0
@@ -122551,9 +122845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireActive: 0
   fireLitCountdown: 1
-  burnCountdown: 2
+  burnCountdown: 5
+  fireActive: 0
 --- !u!199 &2035172130
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -127361,6 +127655,7 @@ GameObject:
   - component: {fileID: 2036368460}
   - component: {fileID: 2036368464}
   - component: {fileID: 2036368463}
+  - component: {fileID: 2036368465}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -127489,7 +127784,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036368458}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.005
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -127497,6 +127792,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2036368465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036368458}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438b8eff210d3cb4491d115af243d062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!1 &2138609989
 GameObject:
   m_ObjectHideFlags: 0

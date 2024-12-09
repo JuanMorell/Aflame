@@ -7,6 +7,8 @@ TagManager:
   - Terrain
   - Item
   - Fire
+  - Water
+  - JumpShroom
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - UI
   - Terrain
   - Sky
-  - 
+  - Rope
   - 
   - 
   - 

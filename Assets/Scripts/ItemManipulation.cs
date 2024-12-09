@@ -14,11 +14,12 @@ public class ItemManipulation : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (itemThrown)
+        if (itemThrown && Input.GetKey(KeyCode.UpArrow))
         {
-            itemThrown = false;
-            itemRb.AddForce(transform.TransformDirection(Vector3.right) * strength, ForceMode.Impulse);
-            itemRb.velocity += gameObject.GetComponentInParent<Rigidbody>().velocity;
+            ItemThrown(Vector3.up);
+        } else if (itemThrown)
+        {
+            ItemThrown(Vector3.right);
         }
     }
 
@@ -62,9 +63,16 @@ public class ItemManipulation : MonoBehaviour
             itemRb = item.GetComponent<Rigidbody>();
             itemRb.constraints = RigidbodyConstraints.None;
         }
-
-        item.transform.parent = cylinderGeodesic.worldCenter.transform;
+        item.transform.parent = null;
+        //item.transform.parent = cylinderGeodesic.worldCenter.transform;
         itemThrown = true;
+    }
+
+    void ItemThrown (Vector3 throwDirection)
+    {
+        itemThrown = false;
+        itemRb.AddForce(transform.TransformDirection(throwDirection) * strength, ForceMode.Impulse);
+        itemRb.velocity += gameObject.GetComponentInParent<Rigidbody>().velocity;
     }
 
     void OnTriggerEnter(Collider other)

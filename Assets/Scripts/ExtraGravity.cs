@@ -7,7 +7,8 @@ public class ExtraGravity : MonoBehaviour
     public float gravity;
 
     void FixedUpdate()
-    {
+    { 
+        if (GetComponent<Rigidbody>().velocity.y <= 0)
         GetComponent<Rigidbody>().AddForce(new Vector3(0, -gravity), ForceMode.Acceleration);
     }
 }

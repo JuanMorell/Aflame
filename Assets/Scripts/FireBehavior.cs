@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class FireBehavior : MonoBehaviour
 {
-    public float fireLitCountdown = 1;
-    public float burnCountdown = 2;
+    float fireLitCountdown = 0.5f;
+    public float burnCountdown = 1;
     public bool fireActive = false;
+    public bool canBurn = true;
 
     bool fireEnabled = true;
     GameObject fireParent;
@@ -26,7 +27,7 @@ public class FireBehavior : MonoBehaviour
             gameObject.GetComponent<FireBehavior>().fireActive = true;
         }
 
-        if (fireActive && !fireParent.CompareTag("Player"))
+        if (fireActive && canBurn)
         {
             burnCountdown -= Time.deltaTime;
 

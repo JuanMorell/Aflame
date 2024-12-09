@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
     float jumpTimer = 0;
     float coyoteTimer = 0;
     bool jump = false;
+
+    [HideInInspector]
+    public bool shroomImpulse = false;
+    [HideInInspector]
+    public JumpShroomRef jumpShroom = null;
+
     LayerMask layerMask;
     Rigidbody rb;
 
@@ -35,6 +41,13 @@ public class PlayerController : MonoBehaviour
             jumpTimer = 0;
             coyoteTimer = 0;
             rb.velocity =  Vector3.up * jumpStrength;
+        }
+
+        if (shroomImpulse && rb.velocity.y<0)
+        {
+            print("jump");
+            shroomImpulse = false;
+            rb.AddForce(Vector3.up * (jumpStrength*20*jumpShroom.moisture), ForceMode.Impulse);
         }
 
         //AUMENTAMOS LA GRAVEDAD DURANTE LA CAÍDA
@@ -66,5 +79,18 @@ public class PlayerController : MonoBehaviour
         head.localEulerAngles = up ? new Vector3(0, 0, 50) : Vector3.zero;
         head.localPosition = down ? new Vector3(0, 1.2f, 0) : new Vector3(0, 2, 0);
         body.localScale = down ? new Vector3(1.25f, 0.5f, 1.25f) : Vector3.one;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (
+            collision.gameObject.CompareTag("Item") &&
+            collision.gameObject.transform.GetChild(0).gameObject.CompareTag("JumpShroom")
+            )
+        {
+            shroomImpulse = true;
+            jumpShroom = collision.gameObject.GetComponent<JumpShroomRef>();
+            print(gameObject);
+        }
     }
 }

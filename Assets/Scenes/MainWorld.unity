@@ -265,9 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &11682692
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5820,9 +5819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &133282393
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -11103,14 +11101,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2138609993}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ReloadScene
-        m_Mode: 1
+        m_MethodName: LoadLevel
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Cave 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &172796059
@@ -11708,9 +11706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &287932152
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -21984,9 +21981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!1 &458443523
 GameObject:
   m_ObjectHideFlags: 0
@@ -22034,9 +22030,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &458443526
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -27388,9 +27383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &583792516
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -32231,9 +32225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &595284965
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -37172,9 +37165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &624457565
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -42301,9 +42293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 1
   fireActive: 1
+  canBurn: 1
 --- !u!199 &688110114
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -47452,9 +47443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &743852525
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -52696,6 +52686,7 @@ MonoBehaviour:
   rainSystem: {fileID: 1195949954}
   lifeGauge: {fileID: 1113711853}
   gameOverPanel: {fileID: 1438254476}
+  rainDetection: {fileID: 0}
 --- !u!1 &843309658
 GameObject:
   m_ObjectHideFlags: 0
@@ -52743,9 +52734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &843309661
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -58681,9 +58671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1032876064
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -63822,9 +63811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1047851441
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -69189,9 +69177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1137897441
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -74127,9 +74114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1192571861
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -82588,7 +82574,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 0
     collisionMode: 0
@@ -82756,7 +82742,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 0
+    minKillSpeed: 50
     maxKillSpeed: 10000
     radiusScale: 1
     collidesWith:
@@ -84003,9 +83989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1248308525
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -89670,6 +89655,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330693515}
   m_CullTransparentMesh: 1
+--- !u!1 &1348549236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348549239}
+  - component: {fileID: 1348549238}
+  - component: {fileID: 1348549237}
+  m_Layer: 6
+  m_Name: Terrain
+  m_TagString: Terrain
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!154 &1348549237
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348549236}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: fb5ad6232cc716e4894e89b71a6e319d, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &1348549238
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348549236}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_TerrainData: {fileID: 15600000, guid: fb5ad6232cc716e4894e89b71a6e319d, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ScaleInLightmap: 0.0512
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_RenderingLayerMask: 1
+  m_AllowAutoConnect: 1
+--- !u!4 &1348549239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348549236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351339247
 GameObject:
   m_ObjectHideFlags: 0
@@ -90787,9 +90848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1448873011
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -97001,82 +97061,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 5
---- !u!1 &1812477457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1812477460}
-  - component: {fileID: 1812477459}
-  - component: {fileID: 1812477458}
-  m_Layer: 6
-  m_Name: Terrain
-  m_TagString: Terrain
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!154 &1812477458
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812477457}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 4e1ca1b7af5b97c499650d3e1725c484, type: 2}
-  m_EnableTreeColliders: 1
---- !u!218 &1812477459
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812477457}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 4e1ca1b7af5b97c499650d3e1725c484, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ScaleInLightmap: 0.0256
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
---- !u!4 &1812477460
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812477457}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1817758366
 GameObject:
   m_ObjectHideFlags: 0
@@ -97124,9 +97108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1817758369
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -101999,9 +101982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1873892048
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -106842,9 +106824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1927315408
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -113601,9 +113582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1947409579
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -118639,9 +118619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &1971501735
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -123640,9 +123619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 1
   fireActive: 1
+  canBurn: 1
 --- !u!1 &1977812534
 GameObject:
   m_ObjectHideFlags: 0
@@ -124281,9 +124259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa5beafc1c8b69469efc9c74c5edabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireLitCountdown: 1
-  burnCountdown: 5
   fireActive: 0
+  canBurn: 1
 --- !u!199 &2035172130
 ParticleSystemRenderer:
   serializedVersion: 6

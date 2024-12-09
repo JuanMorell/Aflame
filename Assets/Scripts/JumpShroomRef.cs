@@ -33,21 +33,14 @@ public class JumpShroomRef : MonoBehaviour
         boletus.GetComponent<Renderer>().material.color = newColor;
     }
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    //if (collision.gameObject.CompareTag("Terrain"))
-    //    GetComponent<Rigidbody>().isKinematic = true;
-    //    //if (collision.gameObject.CompareTag("Player"))
-    //    //{
-    //    //    PlayerController con = collision.gameObject.GetComponent<PlayerController>();
-    //    //    con.shroomImpulse = true;
-    //    //    con.jumpShroom = gameObject.GetComponent<JumpShroomRef>();
-    //    //}
-    //}
+    void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<Rigidbody>().isKinematic = true;
+    }
 
-    //void OnCollisionExit(Collision collision)
-    //{
-    //    GetComponent<Rigidbody>().isKinematic = false;
+    void OnCollisionExit(Collision collision)
+    {
+        GetComponent<Rigidbody>().isKinematic = false;
 
-    //}
+    }
 }

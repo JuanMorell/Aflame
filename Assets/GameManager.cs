@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int currentLevel;
     public GameObject pausePanel;
 
     string currentSceneName;

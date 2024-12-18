@@ -3,21 +3,13 @@ using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class SaveGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private const string extension = ".json";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void SaveFileAsJSon(string saveFile, JObject state)
+    public void SaveFileAsJSon(string saveFile, JObject state)
     {
         string path = GetPathFromSaveFile(saveFile);
         print("Saving to " + path);
@@ -31,4 +23,8 @@ public class SaveGame : MonoBehaviour
         }
     }
 
+    private string GetPathFromSaveFile(string saveFile)
+    {
+        return Path.Combine(Application.persistentDataPath, saveFile + extension);
+    }
 }
